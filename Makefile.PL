@@ -19,8 +19,8 @@ unless( $@ )
 
 WriteMakefile
         (
-        'NAME'      => 'Test::HTTPStatus',
-        'VERSION'   => '0.62',
+        'NAME'         => 'Test::HTTPStatus',
+        'VERSION_FROM' => 'lib/HTTPStatus.pm',
  		'PREREQ_PM' => {
  			'Test::Builder'            => '0',
  			'Test::More'               => '0',
