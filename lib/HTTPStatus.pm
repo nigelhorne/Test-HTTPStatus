@@ -17,15 +17,13 @@ Test::HTTPStatus - check an HTTP status
 
 =head1 DESCRIPTION
 
-THIS IS ALPHA SOFTWARE.
-
 Check the HTTP status for a resource.
 
 =cut
 
 use 5.004;
 use vars qw($VERSION);
-$VERSION = '0.50';
+$VERSION = sprintf "%d.%02d", q$Revision$ =~ /(\d+)\.(\d+)/;
 
 use Carp qw(carp);
 use HTTP::SimpleLinkChecker;
