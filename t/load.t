@@ -1,6 +1,11 @@
 # $Id$
-use strict;
+BEGIN {
+	@classes = qw(Test::HTTPStatus);
+	}
 
-use Test::More tests => 1;
+use Test::More tests => scalar @classes;
 
-require_ok( 'Test::HTTPStatus' );
+foreach my $class ( @classes )
+	{
+	print "bail out! Could not compile $class!" unless use_ok( $class );
+	}
