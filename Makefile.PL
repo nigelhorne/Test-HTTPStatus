@@ -12,7 +12,7 @@ WriteMakefile
  			'Test::More'               => undef,
  			'HTTP::SimpleLinkChecker'  => undef,
  			'URI'                      => undef,
- 			'Apache::Constants'        => undef,
+			'Carp'                     => undef
  			},
         'PM'        => 
         	{
