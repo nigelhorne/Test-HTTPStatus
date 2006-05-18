@@ -3,6 +3,9 @@
 * cleaned up distribution
 * no need to upgrade
 
+1.05 - Wed May 17 21:47:27 2006
+	* updates for the documentation and kwalitee. No need to upgrade.
+
 1.04 - Tue Mar  8 18:12:08 2005
 	* Added POD coverage tests: no need to upgrade
 
