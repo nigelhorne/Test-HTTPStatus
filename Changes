@@ -3,6 +3,10 @@
 * cleaned up distribution
 * no need to upgrade
 
+1.06 - Tue Jan  9 22:49:46 2007
+	* updated copyright and license info
+	* no code changes, so no need to upgrade
+
 1.05 - Wed May 17 21:47:27 2006
 	* updates for the documentation and kwalitee. No need to upgrade.
 
