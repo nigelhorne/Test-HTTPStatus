@@ -5,9 +5,11 @@ eval "use Test::Manifest 1.14";
 
 WriteMakefile
 	(
-	'NAME'         => 'Test::HTTPStatus',
-	'VERSION_FROM' => 'lib/HTTPStatus.pm',
-	'LICENSE'       => 'perl',
+	'NAME'          => 'Test::HTTPStatus',
+	'VERSION_FROM'  => 'lib/HTTPStatus.pm',
+	'LICENSE'		=> 'perl',
+	'AUTHOR'		=> 'brian d foy <bdfoy@cpan.org>',
+
 	'PREREQ_PM' => {
 		'Test::Builder'            => '0',
 		'Test::More'               => '0',
@@ -15,6 +17,7 @@ WriteMakefile
 		'URI'                      => '0',
 		'Carp'                     => '0',
 		},
+
 	'PM'        => 
 		{
 		'lib/HTTPStatus.pm' => '$(INST_LIBDIR)/HTTPStatus.pm',
