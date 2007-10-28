@@ -4,7 +4,6 @@ lib/HTTPStatus.pm
 LICENSE
 Makefile.PL
 MANIFEST
-META.yml
 README
 t/get_status.t
 t/load.t

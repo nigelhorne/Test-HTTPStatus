@@ -6,6 +6,7 @@ eval "use Test::Manifest 1.14";
 WriteMakefile
 	(
 	'NAME'          => 'Test::HTTPStatus',
+	'ABSTRACT'      => 'check an HTTP status',
 	'VERSION_FROM'  => 'lib/HTTPStatus.pm',
 	'LICENSE'		=> 'perl',
 	'AUTHOR'		=> 'brian d foy <bdfoy@cpan.org>',

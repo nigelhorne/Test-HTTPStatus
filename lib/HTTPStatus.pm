@@ -23,7 +23,7 @@ Check the HTTP status for a resource.
 
 use 5.004;
 use vars qw($VERSION);
-$VERSION = sprintf "%d.%02d", q$Revision$ =~ /(\d+)\.(\d+)/;
+$VERSION = 1.07;
 
 use Carp qw(carp);
 use HTTP::SimpleLinkChecker;
