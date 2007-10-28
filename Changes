@@ -3,6 +3,9 @@
 * cleaned up distribution
 * no need to upgrade
 
+1.07 - Sat Oct 27 20:58:03 2007
+	* distro cleanups after moving from CVS to SVN
+
 1.06 - Tue Jan  9 22:49:46 2007
 	* updated copyright and license info
 	* no code changes, so no need to upgrade
