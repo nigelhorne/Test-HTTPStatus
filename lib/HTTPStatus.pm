@@ -2,6 +2,9 @@
 package Test::HTTPStatus;
 use strict;
 
+use warnings;
+no warnings;
+
 =head1 NAME
 
 Test::HTTPStatus - check an HTTP status
@@ -32,8 +35,8 @@ use URI;
 
 my $Test = Test::Builder->new;
 
-use constant NO_URL             => -1;
-use constant INVALID_URL        => -2;
+use constant NO_URL             =>  -1;
+use constant INVALID_URL        =>  -2;
 use constant HTTP_OK            => 200;
 use constant HTTP_NOT_FOUND     => 404;
 
