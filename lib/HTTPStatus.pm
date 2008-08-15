@@ -21,9 +21,9 @@ Check the HTTP status for a resource.
 
 =cut
 
-use 5.004;
+use 5.006;
 use vars qw($VERSION);
-$VERSION = 1.07;
+$VERSION = 1.08;
 
 use Carp qw(carp);
 use HTTP::SimpleLinkChecker;
