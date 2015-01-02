@@ -1,7 +1,8 @@
-# $Id$
+# Changes for Test-HTTPStatus
+
 0.62 - Tue Sep  7 20:11:30 2004
-* cleaned up distribution
-* no need to upgrade
+	* cleaned up distribution
+	* no need to upgrade
 
 1.08 - Fri Aug 15 17:28:49 2008
 	* Update the tests for the exported constants
