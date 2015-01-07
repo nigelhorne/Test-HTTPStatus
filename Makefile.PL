@@ -1,35 +1,70 @@
-use ExtUtils::MakeMaker;
-
 require 5.006;
+use strict;
+use warnings;
 
-eval "use Test::Manifest 1.14";
+my $github    = 'https://github.com/briandfoy/';
+my $main_file = 'lib/Test/HTTPStatus.pm';
 
-WriteMakefile
-	(
+my %WriteMakefile = (
 	'NAME'          => 'Test::HTTPStatus',
-	'ABSTRACT'      => 'check an HTTP status',
-	'VERSION_FROM'  => 'lib/HTTPStatus.pm',
+	'ABSTRACT_FROM' => $main_file,
+	'VERSION_FROM'  => $main_file,
 	'LICENSE'		=> 'perl',
 	'AUTHOR'		=> 'brian d foy <bdfoy@cpan.org>',
+	
+	'CONFIGURE_REQUIRES' => {
+		'ExtUtils::MakeMaker' => '6.64',
+		},
 
-	'PREREQ_PM' => {
+	'BUILD_REQUIRES' => {
+		},
+
+	'TEST_REQUIRES' => {
 		'Test::Builder'            => '0',
-		'Test::More'               => '0',
+		'Test::More'               => '0.95',
+		},
+
+	'PREREQ_PM'     => {
 		'HTTP::SimpleLinkChecker'  => '0',
 		'URI'                      => '0',
 		'Carp'                     => '0',
 		},
 
-	'PM'        => 
-		{
-		'lib/HTTPStatus.pm' => '$(INST_LIBDIR)/HTTPStatus.pm',
-		},
-	
-	'MAN3PODS' =>
-		{
-		'lib/HTTPStatus.pm' => '$(INST_LIBDIR)/Test::HTTPStatus.3',
+	'META_MERGE' => {
+		'meta-spec' => { version => 2 },
+		resources => {
+			repository => {
+				type => 'git',
+				url  => "$github.git",
+				web  => $github,
+				},
+			bugtraker => {
+				web    => "$github/issues",
+				},
+			homepage => $github,
+			},
 		},
 	
 	clean  => { FILES => 'Test-HTTPStatus-*' },
 	);
 
+
+sub arguments { \%WriteMakefile }
+
+do_it() unless caller;
+sub do_it {
+	require File::Spec;
+	my $MM ='ExtUtils::MakeMaker';
+	my $MM_version =
+		eval{ "$MM " . $WriteMakefile{'CONFIGURE_REQUIRES'}{'ExtUtils::MakeMaker'} }
+			//
+		"$MM 6.64";
+	eval "use $MM_version";
+	eval "use Test::Manifest 1.21" 
+		if -e File::Spec->catfile( qw(t test_manifest) );
+	WriteMakefile( %WriteMakefile );
+	}
+
+
+no warnings;
+__PACKAGE__;
