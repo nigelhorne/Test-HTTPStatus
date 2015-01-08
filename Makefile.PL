@@ -1,12 +1,15 @@
-require 5.006;
+require 5.008;
 use strict;
 use warnings;
 
-my $github    = 'https://github.com/briandfoy/';
-my $main_file = 'lib/Test/HTTPStatus.pm';
+use File::Spec::Functions qw(catfile);
+
+my $module    = 'Test::HTTPStatus';
+my $github    = 'https://github.com/briandfoy/Test-HTTPStatus';
+my $main_file = catfile( 'lib', split /::/, "$module.pm" );
 
 my %WriteMakefile = (
-	'NAME'          => 'Test::HTTPStatus',
+	'NAME'          => $module,
 	'ABSTRACT_FROM' => $main_file,
 	'VERSION_FROM'  => $main_file,
 	'LICENSE'		=> 'perl',
