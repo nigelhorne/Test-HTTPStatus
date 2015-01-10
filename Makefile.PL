@@ -51,7 +51,7 @@ my %WriteMakefile = (
 			},
 		},
 	
-	clean  => { FILES => 'Test-HTTPStatus-*' },
+	clean => { FILES => "$dist-*" },
 	);
 
 
