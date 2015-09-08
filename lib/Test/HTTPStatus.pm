@@ -4,6 +4,8 @@ use strict;
 use warnings;
 no warnings;
 
+=encoding utf8
+
 =head1 NAME
 
 Test::HTTPStatus - check an HTTP status
