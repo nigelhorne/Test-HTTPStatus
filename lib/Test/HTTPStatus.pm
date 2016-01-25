@@ -15,7 +15,7 @@ Test::HTTPStatus - check an HTTP status
 	use Test::HTTPStatus tests => 2;
 	use Apache::Constants qw(:http);
 
-	http_ok( 'http://www.perl.org', HTTP_OK );
+	http_ok( 'https://www.perl.org', HTTP_OK );
 
 	http_ok( $url, $status );
 
@@ -41,8 +41,7 @@ use constant INVALID_URL        =>  -2;
 use constant HTTP_OK            => 200;
 use constant HTTP_NOT_FOUND     => 404;
 
-sub import
-	{
+sub import {
     my $self = shift;
     my $caller = caller;
     no strict 'refs';
@@ -68,8 +67,7 @@ HTTP_OK (from Apache::Constants).
 
 =cut
 
-sub http_ok
-	{
+sub http_ok {
 	my $url      = shift;
 	my $expected = shift || HTTP_OK;
 
@@ -77,26 +75,21 @@ sub http_ok
 
 	my $status = $hash->{status};
 
-	if( defined $expected and $expected eq $status )
-		{
+	if( defined $expected and $expected eq $status ) {
 		$Test->ok( 1, "Expected [$expected], got [$status] for [$url]");
 		}
-	elsif( $status == NO_URL )
-		{
+	elsif( $status == NO_URL ) {
 		$Test->ok( 0, "[$url] does not appear to be anything");
 		}
-	elsif( $status == INVALID_URL )
-		{
+	elsif( $status == INVALID_URL ) {
 		$Test->ok( 0, "[$url] does not appear to be a valid URL");
 		}
-	else
-		{
+	else {
 		$Test->ok( 0, "Mysterious failure for [$url]" );
 		}
 	}
 
-sub _get_status
-	{
+sub _get_status {
 	my $string = shift;
 
 	return { status => NO_URL } unless defined $string;
