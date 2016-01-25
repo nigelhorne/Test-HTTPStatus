@@ -1,5 +1,8 @@
 Revision history for Perl module Test::HTTPStatus
 
+1.081 2016-01-25T19:38:01Z
+	* Forgot to bump the version!
+
 1.08 2016-01-25T19:36:12Z
 	*Freshen up the distro and move everything to GitHub
 
