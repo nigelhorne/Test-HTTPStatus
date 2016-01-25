@@ -118,13 +118,9 @@ Apache::Constants, HTTP::SimpleLinkChecker
 
 =head1 SOURCE AVAILABILITY
 
-This source is part of a SourceForge project which always has the
-latest sources in CVS, as well as all of the previous releases.
+This project is in GitHub:
 
-	http://sourceforge.net/projects/brian-d-foy/
-
-If, for some reason, I disappear from the world, one of the other
-members of the project can shepherd this module appropriately.
+	https://github.com/briandfoy/test-httpstatus
 
 =head1 AUTHOR
 
