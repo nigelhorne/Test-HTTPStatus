@@ -27,7 +27,7 @@ Check the HTTP status for a resource.
 
 use 5.008;
 use vars qw($VERSION);
-$VERSION = 1.08;
+$VERSION = '1.081';
 
 use Carp qw(carp);
 use HTTP::SimpleLinkChecker;
