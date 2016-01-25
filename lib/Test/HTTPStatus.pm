@@ -25,7 +25,7 @@ Check the HTTP status for a resource.
 
 =cut
 
-use 5.006;
+use 5.008;
 use vars qw($VERSION);
 $VERSION = 1.08;
 
