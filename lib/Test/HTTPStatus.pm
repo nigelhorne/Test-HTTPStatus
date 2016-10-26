@@ -27,14 +27,16 @@ Check the HTTP status for a resource.
 
 use 5.008;
 use vars qw($VERSION);
-$VERSION = '1.081';
+$VERSION = '2.001';
+
+use parent 'Test::Builder::Module';
 
 use Carp qw(carp);
 use HTTP::SimpleLinkChecker;
-use Test::Builder;
-use URI;
+use Test::Builder::Module;
+use Mojo::URL;
 
-my $Test = Test::Builder->new;
+my $Test = __PACKAGE__->builder;
 
 use constant NO_URL             =>  -1;
 use constant INVALID_URL        =>  -2;
@@ -85,7 +87,7 @@ sub http_ok {
 		$Test->ok( 0, "[$url] does not appear to be a valid URL");
 		}
 	else {
-		$Test->ok( 0, "Mysterious failure for [$url]" );
+		$Test->ok( 0, "Mysterious failure for [$url] with status [$status]" );
 		}
 	}
 
@@ -94,9 +96,9 @@ sub _get_status {
 
 	return { status => NO_URL } unless defined $string;
 
-	my $url = URI->new($string)->canonical;
+	my $url = Mojo::URL->new( $string );
 	return { result => INVALID_URL }
-		unless UNIVERSAL::isa( $url, 'URI' );
+		unless eval { $url->isa( 'Mojo::URL' ) };
 
 	my $status = HTTP::SimpleLinkChecker::check_link( $url );
 
