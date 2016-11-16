@@ -97,8 +97,7 @@ sub _get_status {
 	return { status => NO_URL } unless defined $string;
 
 	my $url = Mojo::URL->new( $string );
-	return { result => INVALID_URL }
-		unless eval { $url->isa( 'Mojo::URL' ) };
+	return { status => undef } unless $url->host;
 
 	my $status = HTTP::SimpleLinkChecker::check_link( $url );
 
