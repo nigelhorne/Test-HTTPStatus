@@ -1,6 +1,6 @@
 use strict;
 
-use Test::More tests => 4;
+use Test::More;
 
 BEGIN { require Test::HTTPStatus; Test::HTTPStatus->import };
 
@@ -24,3 +24,4 @@ SKIP: {
 
 	   $status = Test::HTTPStatus::_get_status('foo');
 	is( $status->{status}, undef, "HTTP Server Error" );
+done_testing();
