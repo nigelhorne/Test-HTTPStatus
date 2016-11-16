@@ -27,7 +27,7 @@ Check the HTTP status for a resource.
 
 use 5.008;
 use vars qw($VERSION);
-$VERSION = '2.001';
+$VERSION = '2.001_01';
 
 use parent 'Test::Builder::Module';
 
