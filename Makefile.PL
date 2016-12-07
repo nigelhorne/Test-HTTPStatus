@@ -67,7 +67,7 @@ my %WriteMakefile = (
 
 	'PREREQ_PM'     => {
 		'Carp'                     => '0',
-		'HTTP::SimpleLinkChecker'  => '1.164',
+		'HTTP::SimpleLinkChecker'  => '1.165',
 		'Mojolicious'              => '6', # HTTP::SimpleLinkChecker already uses this
 		'Mojo::URL'                => '0', # doesn't specify a version, hence the above line
 		},
