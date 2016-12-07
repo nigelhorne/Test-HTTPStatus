@@ -1,5 +1,11 @@
 Revision history for Perl module Test::HTTPStatus
 
+2.001_02 2016-12-07T15:38:24Z
+	* Bump to next dev version
+	* The tests should now get a 200 status for www.perl6.org. This 
+	requires HTTP::SimpleLinkChecker 1.165, which turns on automatic
+	redirect support.
+
 2.001_01 2016-11-16T01:58:56Z
 	* Work harder to return an undef status when it's a bad URL. Mojo::URL
 	does things a bit differently.
