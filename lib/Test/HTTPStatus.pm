@@ -25,9 +25,8 @@ Check the HTTP status for a resource.
 
 =cut
 
-use vars qw($VERSION);
-$VERSION = '2.002';
 use v5.10.1;  # Mojolicious is v5.10.1 and later
+our $VERSION = '2.003';
 
 use parent 'Test::Builder::Module';
 
