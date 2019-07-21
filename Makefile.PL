@@ -35,7 +35,7 @@ Perl.
 
 =cut
 
-print STDERR <<"HERE"
+print STDERR <<"HERE";
 ====================================================================
 Test::HTTPStatus is an abandoned module. You can still use it but
 there is no support and it might not stay on CPAN. If you want to
