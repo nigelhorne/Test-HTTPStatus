@@ -16,4 +16,5 @@ t/pod.t
 t/pod_coverage.t
 t/status.t
 t/test_manifest
+t/vars.t
 xt/changes.t
