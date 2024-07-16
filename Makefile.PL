@@ -61,18 +61,15 @@ my %WriteMakefile = (
 		},
 
 	'TEST_REQUIRES' => {
-		'Test::Builder::Module'    => '0',
+		'Test::Builder::Module'    => 0,
 		'Test::Most'               => 0,
-		},
-
-	'PREREQ_PM'     => {
+		'Test::Needs' => 0
+	}, 'PREREQ_PM'     => {
 		'Carp'                     => '0',
 		'HTTP::SimpleLinkChecker'  => '1.165',
 		'Mojolicious'              => '6', # HTTP::SimpleLinkChecker already uses this
 		'Mojo::URL'                => '0', # doesn't specify a version, hence the above line
-		},
-
-	'META_MERGE' => {
+	}, 'META_MERGE' => {
 		'meta-spec' => { version => 2 },
 		resources => {
 			repository => {
