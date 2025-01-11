@@ -5,7 +5,6 @@ Test::HTTPStatus - check an HTTP status
 # SYNOPSIS
 
         use Test::HTTPStatus tests => 2;
-        use Apache::Constants qw(:http);
 
         http_ok( 'https://www.perl.org', HTTP_OK );
 
@@ -21,11 +20,11 @@ Check the HTTP status for a resource.
 
     Print the ok message if the URL's HTTP status matches the specified
     HTTP\_STATUS.  If you don't specify a status, it assumes you mean
-    HTTP\_OK (from Apache::Constants).
+    HTTP\_OK.
 
 # SEE ALSO
 
-[Apache::Constants](https://metacpan.org/pod/Apache%3A%3AConstants), [HTTP::SimpleLinkChecker](https://metacpan.org/pod/HTTP%3A%3ASimpleLinkChecker)
+[HTTP::SimpleLinkChecker](https://metacpan.org/pod/HTTP%3A%3ASimpleLinkChecker)
 
 # AUTHORS
 

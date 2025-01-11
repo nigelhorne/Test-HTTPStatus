@@ -13,7 +13,6 @@ Test::HTTPStatus - check an HTTP status
 =head1 SYNOPSIS
 
 	use Test::HTTPStatus tests => 2;
-	use Apache::Constants qw(:http);
 
 	http_ok( 'https://www.perl.org', HTTP_OK );
 
@@ -64,7 +63,7 @@ sub import {
 
 Print the ok message if the URL's HTTP status matches the specified
 HTTP_STATUS.  If you don't specify a status, it assumes you mean
-HTTP_OK (from Apache::Constants).
+HTTP_OK.
 
 =cut
 
@@ -107,7 +106,7 @@ sub _get_status {
 
 =head1 SEE ALSO
 
-L<Apache::Constants>, L<HTTP::SimpleLinkChecker>
+L<HTTP::SimpleLinkChecker>
 
 =head1 AUTHORS
 
