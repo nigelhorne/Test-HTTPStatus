@@ -43,6 +43,15 @@ my $module    = __PACKAGE__;
 my $github    = 'https://github.com/nigelhorne/Test-HTTPStatus';
 my $main_file = catfile( 'lib', split /::/, "$module.pm" );
 
+my $dist_args = {
+	COMPRESS => 'gzip -9f',	# Compress tarball using gzip
+	SUFFIX => 'gz',	# File suffix for tarball
+};
+
+if($^O eq 'darwin') {
+	$dist_args->{'TAR'} = 'gtar';
+}
+
 my %WriteMakefile = (
 	'MIN_PERL_VERSION' => '5.010',
 
@@ -62,7 +71,8 @@ my %WriteMakefile = (
 
 	'TEST_REQUIRES' => {
 		'Test::Builder::Module'    => 0,
-		'Test::Most'               => 0,
+		'Test::DescribeMe' => 0,
+		'Test::Most'       => 0,
 		'Test::Needs' => 0
 	}, 'PREREQ_PM'     => {
 		'Carp'                     => '0',
@@ -85,7 +95,8 @@ my %WriteMakefile = (
 		},
 
 	clean => { FILES => "$dist-*" },
-	);
+	dist => $dist_args,
+);
 
 
 sub arguments { \%WriteMakefile }
