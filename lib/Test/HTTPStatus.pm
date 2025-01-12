@@ -57,13 +57,76 @@ sub import {
 
 =head1 FUNCTIONS
 
+=head2 http_ok( URL [, HTTP_STATUS ] )
+
+    http_ok( $url, $expected_status );
+
+Tests the HTTP status of the specified URL and reports whether it matches the expected status.
+
+=head3 Parameters
+
 =over 4
 
-=item http_ok( URL [, HTTP_STATUS] )
+=item * C<URL> (Required)
 
-Print the ok message if the URL's HTTP status matches the specified
-HTTP_STATUS.  If you don't specify a status, it assumes you mean
-HTTP_OK.
+The URL to be tested.
+This must be a valid URL string.
+If the URL is invalid or undefined, the test will fail, and an appropriate diagnostic message will be displayed.
+
+=item * C<HTTP_STATUS> (Optional)
+
+The expected HTTP status code.
+Defaults to C<HTTP_OK> (200) if not provided.
+This parameter should be one of the HTTP status constants exported by the module (e.g., C<HTTP_OK>, C<HTTP_NOT_FOUND>).
+
+=back
+
+=head3 Diagnostics
+
+On success, the test will pass with a message in the following format:
+
+    Expected [<expected_status>], got [<actual_status>] for [<url>]
+
+On failure, the test will fail with one of the following messages:
+
+=over 4
+
+=item * C<[$url] does not appear to be anything>
+
+Indicates that the URL was undefined or missing.
+
+=item * C<[$url] does not appear to be a valid URL>
+
+Indicates that the URL string provided was invalid or malformed.
+
+=item * C<Mysterious failure for [$url] with status [$status]>
+
+Indicates that the request failed for an unexpected reason or returned a status not matching the expected value.
+
+=back
+
+=head3 Examples
+
+=over 4
+
+=item * Basic test with default expected status:
+
+    http_ok('https://www.perl.org');
+
+This checks that the URL C<https://www.perl.org> returns an HTTP status of C<HTTP_OK> (200).
+
+=item * Test with a custom expected status:
+
+    http_ok('https://www.example.com/404', HTTP_NOT_FOUND);
+
+This checks that the URL C<https://www.example.com/404> returns an HTTP status of C<HTTP_NOT_FOUND> (404).
+
+=back
+
+=head3 Return Value
+
+The routine does not return any value.
+Instead, it reports success or failure using the underlying test builder's C<ok> method.
 
 =cut
 
@@ -102,11 +165,9 @@ sub _get_status {
 	return { url => $url, status => $status };
 	}
 
-=back
-
 =head1 SEE ALSO
 
-L<HTTP::SimpleLinkChecker>
+L<HTTP::SimpleLinkChecker>, L<Mojo::URL>
 
 =head1 AUTHORS
 

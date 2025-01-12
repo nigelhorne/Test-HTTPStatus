@@ -8,6 +8,7 @@ MANIFEST			This list of files
 MANIFEST.SKIP
 README.md
 README.pod
+t/changes.t
 t/comment-spelling.t
 t/coverage.t
 t/eof.t
@@ -22,4 +23,3 @@ t/pod.t
 t/status.t
 t/test_manifest
 t/vars.t
-xt/changes.t
