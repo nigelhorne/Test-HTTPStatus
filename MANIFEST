@@ -7,10 +7,8 @@ Makefile.PL
 MANIFEST			This list of files
 MANIFEST.SKIP
 README.md
-README.pod
 t/changes.t
 t/comment-spelling.t
-t/coverage.t
 t/eof.t
 t/eol.t
 t/get_status.t
@@ -18,6 +16,7 @@ t/links.t
 t/load.t
 t/no404s.t
 t/pod-cm.t
+t/pod-coverage.t
 t/pod-spelling.t
 t/pod.t
 t/status.t
