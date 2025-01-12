@@ -109,10 +109,6 @@ You can also look for information at:
 
     [http://matrix.cpantesters.org/?dist=Test-HTTPStatus](http://matrix.cpantesters.org/?dist=Test-HTTPStatus)
 
-- CPAN Ratings
-
-    [http://cpanratings.perl.org/d/Test-HTTPStatus](http://cpanratings.perl.org/d/Test-HTTPStatus)
-
 - CPAN Testers Dependencies
 
     [http://deps.cpantesters.org/?module=Test::HTTPStatus](http://deps.cpantesters.org/?module=Test::HTTPStatus)

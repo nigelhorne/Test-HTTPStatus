@@ -201,10 +201,6 @@ L<http://cpants.cpanauthors.org/dist/Test-HTTPStatus>
 
 L<http://matrix.cpantesters.org/?dist=Test-HTTPStatus>
 
-=item * CPAN Ratings
-
-L<http://cpanratings.perl.org/d/Test-HTTPStatus>
-
 =item * CPAN Testers Dependencies
 
 L<http://deps.cpantesters.org/?module=Test::HTTPStatus>
