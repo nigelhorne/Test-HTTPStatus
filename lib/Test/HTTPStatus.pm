@@ -153,10 +153,6 @@ sub http_ok {
 		}
 	}
 
-my $UA ||= Mojo::UserAgent->new();
-$UA->proxy->detect();
-$UA->max_redirects(3);
-
 sub _get_status {
 	my $string = shift;
 
@@ -170,17 +166,35 @@ sub _get_status {
 	return { url => $url, status => $status };
 	}
 
-# From HTTP::SimpleLinkChecker, which has been deleted
+=head2 _check_link
+
+Verify the accessibility of a given URL by checking its HTTP status code using L<Mojo::UserAgent>.
+It first attempts to send a HEAD request to the provided link,
+which is useful for quickly checking if the resource exists without downloading its content.
+If the response indicates no error (i.e., status code is below 400),
+the function proceeds with a GET request to ensure a proper response is received.
+The function then validates whether a valid HTTP response was obtained and returns the corresponding status code.
+If the link is undefined or if no valid response is received, the function returns C<undef>.
+
+It is taken from the old module HTTP::SimpleLinkChecker.
+
+=cut
+
+our $UA ||= Mojo::UserAgent->new();
+$UA->proxy->detect();
+$UA->max_redirects(3);
+
 sub _check_link {
-	my( $link ) = @_;
+	my $link = shift;
+
 	say STDERR "Link is $link";
 	unless( defined $link ) {
 		# $ERROR = 'Received no argument';
 		return;
-		}
+	}
 
 	my $transaction = $UA->head($link);
-	my $response = $transaction->res;
+	my $response = $transaction->res();
 
 	if( !($response and $response->code >= 400) ) {
 		$transaction = $UA->get($link);
@@ -193,7 +207,9 @@ sub _check_link {
 		}
 
 	return $response->code;
-	}
+}
+
+sub user_agent { $UA }
 
 =head1 SEE ALSO
 
