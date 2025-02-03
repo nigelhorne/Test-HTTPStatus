@@ -15,14 +15,15 @@ WriteMakefile(
 	NAME		 => 'Test::HTTPStatus',
 	VERSION_FROM => 'lib/Test/HTTPStatus.pm', # Automatically extracts $VERSION
 	ABSTRACT	 => 'Test HTTP status codes of URLs',
-	AUTHOR	   => 'brian d foy <bdfoy@cpan.org>, Nigel Horne <njh@bandsman.co.uk>',
-	LICENSE	  => 'artistic_2',
+	AUTHOR	 => 'brian d foy <bdfoy@cpan.org>, Nigel Horne <njh@bandsman.co.uk>',
+	LICENSE	=> 'artistic_2',
 	PREREQ_PM	=> {					   # Required dependencies
-		'HTTP::SimpleLinkChecker' => 0,	 # Specify minimum version if needed
-		'Mojo::URL'			  => 0,
-		'Test::Builder::Module'  => 0,
-		'Carp'				   => 0,
-		'warnings'			   => 0,
+		# 'HTTP::SimpleLinkChecker' => 0,	 # Specify minimum version if needed
+		'Mojo::URL'			=> 0,
+		'Mojo::UserAgent' => 0,
+		'Test::Builder::Module' => 0,
+		'Carp'				 => 0,
+		'warnings'			 => 0,
 	},
 	TEST_REQUIRES => {					  # Dependencies needed for testing
 		'Test::DescribeMe' => 0,
@@ -31,7 +32,7 @@ WriteMakefile(
 	},
 	META_MERGE	=> {					  # Additional metadata
 		resources => {
-			homepage   => 'https://metacpan.org/release/Test-HTTPStatus',
+			homepage => 'https://metacpan.org/release/Test-HTTPStatus',
 			bugtracker => 'https://rt.cpan.org/NoAuth/Bugs.html?Dist=Test-HTTPStatus',
 			repository => 'https://github.com/username/Test-HTTPStatus', # Update as necessary
 		},
