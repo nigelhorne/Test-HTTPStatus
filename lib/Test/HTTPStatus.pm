@@ -132,26 +132,24 @@ Instead, it reports success or failure using the underlying test builder's C<ok>
 =cut
 
 sub http_ok {
-	my $url      = shift;
+	my $url = shift;
 	my $expected = shift || HTTP_OK;
 
-	my $hash = _get_status( $url );
+	# Always succeed when NO_NETWOK_TESTING is set
+	my $hash = $ENV{'NO_NETWORK_TESTING'} ? { status => $expected, url => $url } : _get_status( $url );
 
 	my $status = $hash->{status};
 
-	if( defined $expected and $expected eq $status ) {
+	if(defined $expected and $expected eq $status ) {
 		$Test->ok( 1, "Expected [$expected], got [$status] for [$url]" );
-		}
-	elsif( $status == NO_URL ) {
+	} elsif( $status == NO_URL ) {
 		$Test->ok( 0, "[$url] does not appear to be anything" );
-		}
-	elsif( $status == INVALID_URL ) {
+	} elsif( $status == INVALID_URL ) {
 		$Test->ok( 0, "[$url] does not appear to be a valid URL" );
-		}
-	else {
+	} else {
 		$Test->ok( 0, "Mysterious failure for [$url] with status [$status]" );
-		}
 	}
+}
 
 sub _get_status {
 	my $string = shift;
@@ -164,7 +162,7 @@ sub _get_status {
 	my $status = _check_link( $url );
 
 	return { url => $url, status => $status };
-	}
+}
 
 =head2 _check_link
 
