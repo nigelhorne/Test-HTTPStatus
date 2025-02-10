@@ -43,18 +43,18 @@ use constant HTTP_OK            => 200;
 use constant HTTP_NOT_FOUND     => 404;
 
 sub import {
-    my $self = shift;
-    my $caller = caller;
-    no strict 'refs';
-    *{$caller.'::http_ok'}         = \&http_ok;
-    *{$caller.'::NO_URL'}          = \&NO_URL;
-    *{$caller.'::INVALID_URL'}     = \&INVALID_URL;
-    *{$caller.'::HTTP_OK'}         = \&HTTP_OK;
-    *{$caller.'::HTTP_NOT_FOUND'}  = \&HTTP_NOT_FOUND;
+	my $self = shift;
+	my $caller = caller;
+	no strict 'refs';
+	*{$caller.'::http_ok'}         = \&http_ok;
+	*{$caller.'::NO_URL'}          = \&NO_URL;
+	*{$caller.'::INVALID_URL'}     = \&INVALID_URL;
+	*{$caller.'::HTTP_OK'}         = \&HTTP_OK;
+	*{$caller.'::HTTP_NOT_FOUND'}  = \&HTTP_NOT_FOUND;
 
-    $Test->exported_to($caller);
-    $Test->plan(@_);
-	}
+	$Test->exported_to($caller);
+	$Test->plan(@_);
+}
 
 =head1 FUNCTIONS
 
