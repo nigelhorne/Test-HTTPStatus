@@ -87,6 +87,10 @@ If the link is undefined or if no valid response is received, the function retur
 
 It is taken from the old module HTTP::SimpleLinkChecker.
 
+## user\_agent
+
+Returns the user agent being used
+
 # SEE ALSO
 
 [HTTP::SimpleLinkChecker](https://metacpan.org/pod/HTTP%3A%3ASimpleLinkChecker), [Mojo::URL](https://metacpan.org/pod/Mojo%3A%3AURL)

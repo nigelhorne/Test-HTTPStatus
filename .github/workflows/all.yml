@@ -11,6 +11,7 @@ jobs:
   build:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: ['windows-latest', 'macos-latest', 'ubuntu-latest']
         perl: ['5.30', '5.28']
@@ -31,6 +32,7 @@ jobs:
         env:
           AUTHOR_TESTING: 1
           AUTOMATED_TESTING: 1
+          NO_NETWORK_TESTING: 1
           NONINTERACTIVE_TESTING: 1
           # CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         run: prove -l -b t

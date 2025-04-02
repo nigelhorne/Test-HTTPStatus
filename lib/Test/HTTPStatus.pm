@@ -199,13 +199,19 @@ sub _check_link {
 		$response = $transaction->res;
 	}
 
-	unless( ref $response ) {
+	unless(ref($response)) {
 		# $ERROR = 'Could not get response';
 		return;
 	}
 
-	return $response->code;
+	return $response->code();
 }
+
+=head2 user_agent
+
+Returns the user agent being used
+
+=cut
 
 sub user_agent { $UA }
 
