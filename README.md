@@ -103,6 +103,8 @@ Maintained by Nigel Horne, `<njh at bandsman.co.uk>`
 
 # SUPPORT
 
+This module is provided as-is without any warranty.
+
 You can find documentation for this module with the perldoc command.
 
     perldoc Test::HTTPStatus

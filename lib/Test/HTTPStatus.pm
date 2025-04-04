@@ -24,8 +24,8 @@ Check the HTTP status for a resource.
 
 =cut
 
-use v5.10.1;  # Mojolicious is v5.10.1 and later
-our $VERSION = '2.08';
+use v5.10.1;	# Mojolicious is v5.10.1 and later
+our $VERSION = '2.09';
 
 use parent 'Test::Builder::Module';
 
@@ -226,6 +226,8 @@ brian d foy, C<< <bdfoy@cpan.org> >>
 Maintained by Nigel Horne, C<< <njh at bandsman.co.uk> >>
 
 =head1 SUPPORT
+
+This module is provided as-is without any warranty.
 
 You can find documentation for this module with the perldoc command.
 
