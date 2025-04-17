@@ -1,5 +1,8 @@
 ---
+# See https://github.com/actions/virtual-environments
+# https://github.com/marketplace/actions/setup-perl-environment
 
+name: Test Code
 on:
   push:
     branches:
@@ -30,7 +33,6 @@ jobs:
           cpanm -iq --installdeps --notest .
       - name: Run Tests
         env:
-          AUTHOR_TESTING: 1
           AUTOMATED_TESTING: 1
           NO_NETWORK_TESTING: 1
           NONINTERACTIVE_TESTING: 1
