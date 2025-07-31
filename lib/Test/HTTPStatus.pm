@@ -4,7 +4,7 @@ use strict;
 use warnings;
 # no warnings;
 
-=encoding utf8
+=encoding utf-8
 
 =head1 NAME
 
@@ -14,9 +14,9 @@ Test::HTTPStatus - check an HTTP status
 
 	use Test::HTTPStatus tests => 2;
 
-	http_ok( 'https://www.perl.org', HTTP_OK );
+	http_ok('https://www.perl.org', HTTP_OK);
 
-	http_ok( $url, $status );
+	http_ok($url, $status);
 
 =head1 DESCRIPTION
 
@@ -25,7 +25,7 @@ Check the HTTP status for a resource.
 =cut
 
 use v5.10.1;	# Mojolicious is v5.10.1 and later
-our $VERSION = '2.10';
+our $VERSION = '2.11';
 
 use parent 'Test::Builder::Module';
 
