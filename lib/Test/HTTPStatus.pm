@@ -135,12 +135,14 @@ sub http_ok {
 	my $url = shift;
 	my $expected = shift || HTTP_OK;
 
-	# Always succeed when NO_NETWOK_TESTING is set
+	# Always succeed when NO_NETWORK_TESTING is set
 	my $hash = $ENV{'NO_NETWORK_TESTING'} ? { status => $expected, url => $url } : _get_status( $url );
 
 	my $status = $hash->{status};
 
-	if(defined($expected) && ($expected eq $status)) {
+	if(!defined($status)) {
+		$Test->ok(0, '[$url] status is not set');
+	} elsif(defined($expected) && ($expected eq $status)) {
 		$Test->ok( 1, "Expected [$expected], got [$status] for [$url]" );
 	} elsif( $status == NO_URL ) {
 		$Test->ok( 0, "[$url] does not appear to be anything" );
@@ -157,7 +159,7 @@ sub _get_status {
 	return { status => NO_URL } unless defined $string;
 
 	my $url = Mojo::URL->new( $string );
-	return { status => undef } unless $url->host;
+	return { status => undef } unless $url->host();
 
 	my $status = _check_link( $url );
 
@@ -223,7 +225,7 @@ L<HTTP::SimpleLinkChecker>, L<Mojo::URL>
 
 brian d foy, C<< <bdfoy@cpan.org> >>
 
-Maintained by Nigel Horne, C<< <njh at bandsman.co.uk> >>
+Maintained by Nigel Horne, C<< <njh at nigelhorne.com> >>
 
 =head1 SUPPORT
 
