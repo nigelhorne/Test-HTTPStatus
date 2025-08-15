@@ -141,10 +141,10 @@ sub http_ok {
 	my $status = $hash->{status};
 
 	if(!defined($status)) {
-		$Test->ok(0, '[$url] status is not set');
+		$Test->ok(0, "[$url] status is not set");
 	} elsif(defined($expected) && ($expected eq $status)) {
-		$Test->ok( 1, "Expected [$expected], got [$status] for [$url]" );
-	} elsif( $status == NO_URL ) {
+		$Test->ok(1, "Expected [$expected], got [$status] for [$url]");
+	} elsif($status == NO_URL) {
 		$Test->ok( 0, "[$url] does not appear to be anything" );
 	} elsif( $status == INVALID_URL ) {
 		$Test->ok( 0, "[$url] does not appear to be a valid URL" );
