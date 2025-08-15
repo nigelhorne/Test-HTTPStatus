@@ -12,6 +12,8 @@ on:
   pull_request:
 jobs:
   build:
+    permissions:
+    contents: read
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -34,7 +36,6 @@ jobs:
       - name: Run Tests
         env:
           AUTOMATED_TESTING: 1
-          NO_NETWORK_TESTING: 1
           NONINTERACTIVE_TESTING: 1
           # CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         run: prove -l -b t
