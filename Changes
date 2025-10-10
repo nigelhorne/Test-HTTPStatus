@@ -1,6 +1,6 @@
 Revision history for Perl module Test::HTTPStatus
 
-2.12
+2.12	Fri Oct 10 15:12:12 EDT 2025
 	Fixed another unintialized variable
 	Perl6.org is down
 	Use '==' to compare numbers
