@@ -1,8 +1,7 @@
 package Test::HTTPStatus;
-use strict;
 
+use strict;
 use warnings;
-# no warnings;
 
 =encoding utf-8
 
@@ -149,7 +148,7 @@ sub http_ok {
 	} elsif( $status == INVALID_URL ) {
 		$Test->ok( 0, "[$url] does not appear to be a valid URL" );
 	} else {
-		$Test->ok( 0, "Mysterious failure for [$url] with status [$status]" );
+		$Test->ok(0, "Unknown failure for [$url] with status [$status]");
 	}
 }
 
