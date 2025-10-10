@@ -159,7 +159,7 @@ sub _get_status {
 	return { status => NO_URL } unless defined $string;
 
 	my $url = Mojo::URL->new( $string );
-	return { status => undef } unless $url->host();
+	return { status => INVALID_URL } unless $url->host();
 
 	my $status = _check_link( $url );
 
