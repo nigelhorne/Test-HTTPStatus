@@ -142,7 +142,7 @@ sub http_ok {
 
 	if(!defined($status)) {
 		$Test->ok(0, "[$url] status is not set");
-	} elsif(defined($expected) && ($expected eq $status)) {
+	} elsif(defined($expected) && ($expected == $status)) {
 		$Test->ok(1, "Expected [$expected], got [$status] for [$url]");
 	} elsif($status == NO_URL) {
 		$Test->ok( 0, "[$url] does not appear to be anything" );
