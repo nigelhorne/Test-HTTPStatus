@@ -196,7 +196,7 @@ sub _check_link {
 	my $transaction = $UA->head($link);
 	my $response = $transaction->res();
 
-	if(($response && (!defined($response->code())) || ($response->code() >= 400))) {
+	if(!$response || !defined($response->code()) || ($response->code() >= 400)) {
 		$transaction = $UA->get($link);
 		$response = $transaction->res();
 	}
